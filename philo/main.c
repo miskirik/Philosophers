@@ -6,7 +6,7 @@
 /*   By: miskirik <miskirik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 00:29:47 by miskirik          #+#    #+#             */
-/*   Updated: 2022/10/25 00:29:50 by miskirik         ###   ########.fr       */
+/*   Updated: 2022/10/26 00:17:41 by miskirik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ int	main(int argc, char **argv)
 	ft_table_init(table, argc, argv);
 	ft_table_loop(table);
 	ft_table_free(table);
+	system("Leaks philo");
 	return (0);
 }

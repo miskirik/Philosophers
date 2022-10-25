@@ -6,7 +6,7 @@
 /*   By: miskirik <miskirik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:34:28 by miskirik          #+#    #+#             */
-/*   Updated: 2022/10/25 18:42:34 by miskirik         ###   ########.fr       */
+/*   Updated: 2022/10/26 00:28:25 by miskirik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void	ft_table_free(t_table *table)
 		i++;
 	}
 	pthread_mutex_destroy(&table->mutex_death);
+	free(table->fork);
 	free(table->philo);
 	free(table->mutex_fork);
 	free(table);
