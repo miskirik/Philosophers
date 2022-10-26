@@ -6,7 +6,7 @@
 /*   By: miskirik <miskirik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:34:28 by miskirik          #+#    #+#             */
-/*   Updated: 2022/10/26 00:28:25 by miskirik         ###   ########.fr       */
+/*   Updated: 2022/10/26 15:53:25 by miskirik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_table_init(t_table *table, int argc, char **argv)
 	table->fork = malloc(sizeof(int) * table->size);
 	table->mutex_fork = malloc(sizeof(pthread_mutex_t) * table->size);
 	if (!table->philo || !table->mutex_fork)
-		exit(0);
+		return ;
 	i = 0;
 	while (i < table->size)
 	{

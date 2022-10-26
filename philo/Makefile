@@ -9,11 +9,11 @@ all: $(NAME)
 
 $(NAME): $(SRCS)
 	@$(CC) $(CFLAGS) -o $(NAME) $(SRCS)
-	@echo "Table is ready to eat"
+	@echo "\x1b[32m Table is ready to eat \x1b[0m"
 
 clean:
 	@rm -f $(NAME)
-	@echo "Table is succesfuly cleaned"
+	@echo "\x1b[31m Table is succesfuly cleaned \x1b[0m"
 
 re: clean all
 

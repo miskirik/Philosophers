@@ -6,7 +6,7 @@
 /*   By: miskirik <miskirik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 00:59:25 by miskirik          #+#    #+#             */
-/*   Updated: 2022/10/25 20:41:46 by miskirik         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:28:49 by miskirik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_philo_loop(void *data)
 	if (philo->table->size == 1)
 	{
 		if (pthread_mutex_lock(philo->mutex_left_fork))
-			exit(1);
+			return (NULL);
 		ft_philo_print(philo, "has taken a fork", 0);
 		while (!ft_philo_check(philo))
 		{
@@ -38,6 +38,8 @@ void	*ft_philo_loop(void *data)
 
 int	ft_philo_eat(t_philo *philo)
 {
+	if (ft_philo_check(philo))
+		return (1);
 	while (ft_philo_try_take_forks(philo))
 		if (ft_philo_check(philo))
 			return (1);
@@ -49,7 +51,7 @@ int	ft_philo_eat(t_philo *philo)
 	if (philo->table->must_eat == philo->eaten_meals)
 	{
 		if (pthread_mutex_lock(&philo->table->mutex_full))
-			exit(0);
+			return (-1);
 		philo->table->full_count += 1;
 		pthread_mutex_unlock(&philo->table->mutex_full);
 	}
@@ -65,7 +67,7 @@ int	ft_philo_try_take_forks(t_philo *philo)
 	result = 1;
 	if (pthread_mutex_lock(philo->mutex_left_fork) || \
 		pthread_mutex_lock(philo->mutex_right_fork))
-		exit(1);
+		return (-1);
 	if (!*philo->right_fork && !*philo->left_fork)
 	{
 		*philo->left_fork = 1;
