@@ -6,7 +6,7 @@
 /*   By: miskirik <miskirik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 00:59:25 by miskirik          #+#    #+#             */
-/*   Updated: 2022/10/26 16:28:49 by miskirik         ###   ########.fr       */
+/*   Updated: 2022/10/27 22:19:21 by miskirik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	ft_philo_eat(t_philo *philo)
 	if (philo->table->must_eat == philo->eaten_meals)
 	{
 		if (pthread_mutex_lock(&philo->table->mutex_full))
-			return (-1);
+			return (-2);
 		philo->table->full_count += 1;
 		pthread_mutex_unlock(&philo->table->mutex_full);
 	}
@@ -67,7 +67,7 @@ int	ft_philo_try_take_forks(t_philo *philo)
 	result = 1;
 	if (pthread_mutex_lock(philo->mutex_left_fork) || \
 		pthread_mutex_lock(philo->mutex_right_fork))
-		return (-1);
+		return (-2);
 	if (!*philo->right_fork && !*philo->left_fork)
 	{
 		*philo->left_fork = 1;

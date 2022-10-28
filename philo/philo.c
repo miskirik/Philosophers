@@ -6,7 +6,7 @@
 /*   By: miskirik <miskirik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 07:41:07 by miskirik          #+#    #+#             */
-/*   Updated: 2022/10/26 15:49:59 by miskirik         ###   ########.fr       */
+/*   Updated: 2022/10/28 11:50:23 by miskirik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_philo_check(t_philo *philo)
 	if (ft_get_time() - philo->last_eat_time > philo->table->die_duration)
 	{
 		if (pthread_mutex_lock(&philo->table->mutex_death))
-			return (-1);
+			return (-2);
 		ft_philo_print(philo, "died", 1);
 		pthread_mutex_unlock(&philo->table->mutex_death);
 		return (1);

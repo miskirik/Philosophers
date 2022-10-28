@@ -15,6 +15,8 @@ clean:
 	@rm -f $(NAME)
 	@echo "\x1b[31m Table is succesfuly cleaned \x1b[0m"
 
+fclean:clean
+
 re: clean all
 
-.PHONY : all clean re
+.PHONY : all clean fclean re
