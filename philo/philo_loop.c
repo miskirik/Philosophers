@@ -6,7 +6,7 @@
 /*   By: miskirik <miskirik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 00:59:25 by miskirik          #+#    #+#             */
-/*   Updated: 2022/10/27 22:19:21 by miskirik         ###   ########.fr       */
+/*   Updated: 2022/10/28 12:45:43 by miskirik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int	ft_philo_sleep(t_philo *philo)
 {
 	if (ft_philo_check(philo))
 		return (1);
-	ft_philo_print(philo, "sleeping", 0);
+	ft_philo_print(philo, "is sleeping", 0);
 	return (ft_philo_wait(philo, philo->table->sleep_duration));
 }
 
@@ -97,6 +97,6 @@ int	ft_philo_think(t_philo *philo)
 {
 	if (ft_philo_check(philo))
 		return (1);
-	ft_philo_print(philo, "thinking", 0);
+	ft_philo_print(philo, "is thinking", 0);
 	return (0);
 }
