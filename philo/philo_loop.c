@@ -6,7 +6,7 @@
 /*   By: miskirik <miskirik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 00:59:25 by miskirik          #+#    #+#             */
-/*   Updated: 2022/10/28 12:45:43 by miskirik         ###   ########.fr       */
+/*   Updated: 2022/10/28 14:59:11 by miskirik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_philo_loop(void *data)
 	t_philo	*philo;
 
 	philo = (t_philo *)data;
-	if (philo->table->size == 1)
+	if (philo->table->size == 1 && !ft_philo_check(philo))
 	{
 		if (pthread_mutex_lock(philo->mutex_left_fork))
 			return (NULL);
